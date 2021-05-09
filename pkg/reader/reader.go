@@ -1,26 +1,23 @@
-package main
+package reader
 
 import (
 	"bufio"
-	"fmt"
-	"io"
-	"log"
 	"os"
 )
 
-func ReadStdin() {
+func ReadStdin() []byte {
 	r := bufio.NewReader(os.Stdin)
-	for {
-		line, isPrefix, err := r.ReadLine()
-		if err == io.EOF {
-			break
-		} else if err != nil {
-			log.Fatal(err)
-		}
+	buf := make([]byte, 1000000)
 
-		fmt.Print(string(line))
-		if !isPrefix {
-			fmt.Println()
+	for {
+		n, err := r.Read(buf)
+		if n == 0 {
+			break
+		} // TODO: 確保したスライスを超過した場合の条件分岐を追加
+		if err != nil {
+			panic(err)
 		}
 	}
+
+	return buf
 }

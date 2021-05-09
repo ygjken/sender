@@ -4,6 +4,8 @@ import (
 	"encoding/json"
 	"net/http"
 	"net/url"
+
+	"github.com/ygjken/webhook/pkg/reader"
 )
 
 type payload struct {
@@ -12,7 +14,7 @@ type payload struct {
 }
 
 func WebHook(hookurl string) error {
-	msg, err := json.Marshal(payload{Text: "Done", Username: "macmini"})
+	msg, err := json.Marshal(payload{Text: string(reader.ReadStdin()), Username: "macmini"})
 	if err != nil {
 		return err
 	}
