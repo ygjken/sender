@@ -11,20 +11,17 @@ type payload struct {
 	Username string `json:"username"`
 }
 
-func post(webhookurl string) error {
+func WebHook(hookurl string) error {
 	msg, err := json.Marshal(payload{Text: "Done", Username: "macmini"})
 	if err != nil {
 		return err
 	}
 
-	resp, err := http.PostForm(webhookurl, url.Values{"payload": {string(msg)}})
+	resp, err := http.PostForm(hookurl, url.Values{"payload": {string(msg)}})
 	if err != nil {
 		return err
 	}
 	defer resp.Body.Close()
 
 	return nil
-}
-
-func WebHook() {
 }
