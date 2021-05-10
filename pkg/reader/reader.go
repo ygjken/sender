@@ -7,7 +7,7 @@ import (
 
 func ReadStdin() []byte {
 	r := bufio.NewReader(os.Stdin)
-	buf := make([]byte, 1000000)
+	buf := make([]byte, 10000)
 
 	for {
 		n, err := r.Read(buf)
