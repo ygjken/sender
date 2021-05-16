@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/ygjken/webhook/pkg/webhook"
+	"github.com/ygjken/sender/pkg/webhook"
 )
 
 func main() {

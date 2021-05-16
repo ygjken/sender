@@ -6,7 +6,7 @@ import (
 	"net/url"
 	"os"
 
-	"github.com/ygjken/webhook/pkg/reader"
+	"github.com/ygjken/sender/pkg/reader"
 )
 
 type payload struct {
