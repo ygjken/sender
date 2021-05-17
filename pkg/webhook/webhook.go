@@ -6,7 +6,7 @@ import (
 	"net/url"
 	"os"
 
-	"github.com/ygjken/sender/pkg/reader"
+	"github.com/ygjken/sender/pkg/command"
 )
 
 type payload struct {
@@ -21,7 +21,7 @@ func WebHook(hookurl string) error {
 		return err
 	}
 	// get stdin
-	text := string(reader.ReadStdin())
+	text := command.GetCommandOut()
 
 	msg, err := json.Marshal(payload{Text: text, Username: name})
 	if err != nil {
