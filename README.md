@@ -11,4 +11,3 @@ nohup ./sender echo msg &
 ## TODO
 - [x] Add code to read the urls of webhook from config file.
 - [x] Receive command and make it easier to execute the `nohop` command.
-- [ ] Adjust buf size in `render.go` 
